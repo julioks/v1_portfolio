@@ -14,16 +14,20 @@ export function calculateQuarterLines(){
     const mainheadrect = document.getElementById("main-header").getBoundingClientRect();
     const svgbgrect = svgbg.getBoundingClientRect();
     console.log(mainheadrect.pageX)
-    const centerX = mainheadrect.x + mainheadrect.width; // Center X of the main header
-    const centerY = mainheadrect.y; // Center Y of the main header
+    let centerX = mainheadrect.x + mainheadrect.width; // Center X of the main header
+    let centerY = mainheadrect.y; // Center Y of the main header
     
     // Function to calculate quartering lines
     const generateQuarteringLine = (id, angle) => {
         const rad = (angle * Math.PI) / 180; // Convert angle to radians
-        const x2 = Math.max(0, centerX + Math.cos(rad) * svgbgrect.width); // Calculate endpoint X, ensuring it's not less than 0
-        const y2 = Math.max(0, centerY + Math.sin(rad) * svgbgrect.height); // Calculate endpoint Y, ensuring it's not less than 0
-        
-        return new Line(id, centerX+window.scrollX, centerY+window.scrollY, x2+window.scrollX, y2+window.scrollY);
+        let x2 = Math.max(0, centerX + Math.cos(rad) * svgbgrect.width); // Calculate endpoint X, ensuring it's not less than 0
+        let y2 = Math.max(0, centerY + Math.sin(rad) * svgbgrect.height); // Calculate endpoint Y, ensuring it's not less than 0
+        //this might be an issue? might need to add a check if a line being drawn is one of the main ones
+        if (Math.round((centerY + Number.EPSILON) * 100) / 100===Math.round((y2 + Number.EPSILON) * 100) / 100) {
+            centerY=Math.max(160,centerY)
+            y2=Math.max(160,centerY)
+        }
+        return new Line(id, centerX, centerY, x2, y2);
     };
     
     
@@ -53,9 +57,7 @@ function drawLine(id,sx,sy,ex,ey){
     drawnLine.setAttribute('y1', sy);
     drawnLine.setAttribute('x2', ex);
     drawnLine.setAttribute('y2', ey);
-}
-
-let currentAnimationFrame = null; // Track the current animation frame ID
+}let currentAnimationFrame = null; // Track the current animation frame ID
 
 export function drawLinesIteratively(lineCollection, step, interval) {
     function animate() {
@@ -143,7 +145,7 @@ export function dividedLinePoints(line, divisions){
     return linePoints
 }
 
-//adjusts lines to the same level of progress when resized
+//adjusts lines to the same level of progress position of main element changed
 export function adjustLinesForResize(lineCollection) {
     const newLines = calculateQuarterLines(); // Recalculate based on new layout
 
