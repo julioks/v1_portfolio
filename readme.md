@@ -1,3 +1,4 @@
 todo:
--making about, projects, contact sections
--would be nice if we could check and fix the behavoiur on mobile, when the viewport size changes (ac android chromes topbar dissapers on scroll, the lines do not stretch to the end)
+-write all of the content
+-fix the annoying bug where it stops making the line if scrolled or resized when animating
+-make it so that the click events are assigned immediatley after its heading is made, not when all of the text is animated

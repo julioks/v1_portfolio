@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             done();
         },
 
-        // Divide lines and draw them
+        // Divide long horizontal line and draw divisions
         (done) => {
             dividedLines = dividedLinePoints(quarterLines[0], sections.length);
             drawLinesIteratively(dividedLines, 5, 50);
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 );
         
                 // Animate the text
-                animateText(divBox, `<span>${section.heading}</span>`, 5, 12, sectionDone);
+                animateText(divBox, `<span>${section.heading}</span>`, 50, 120, sectionDone);
             });
         
             // Start animating sections and call `done` only after all section tasks are complete
@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Event listeners for resize and scroll
     window.addEventListener("resize", () => {
-        cancelAnimation();
+    
         adjustLinesForResize(quarterLines);
         dividedLines = dividedLinePoints(quarterLines[0], sections.length, true);
         drawLinesIteratively(quarterLines, 0, 0);
@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
             0,
             (window.innerHeight / 100) * 60 - window.scrollY
         ) + "px";
-        cancelAnimation();
+     
         adjustLinesForResize(quarterLines);
         dividedLines = dividedLinePoints(quarterLines[0], sections.length, true);
         drawLinesIteratively(dividedLines, 0, 0);
