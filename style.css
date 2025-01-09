@@ -203,6 +203,9 @@ p{
 /*for now its for the fake image, but this logic can probably be used with all project subsections*/
 .mdtst{
     display: flex;
+        align-items: center;
+        justify-content: space-between;
+
 }
 .mdtst >img{
     max-width: 500px;
@@ -212,5 +215,6 @@ p{
     margin-top: 50px;
 }
 .mdtst >p{
-    padding-left: 50px;
+    
+
 }
