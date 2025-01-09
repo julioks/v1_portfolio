@@ -17,6 +17,7 @@
 
 body{
     all: unset;
+    scroll-behavior: smooth;
     font-family: GnuUnifont;
     background-color: #161414;
     color: var(--vfdcolor);
