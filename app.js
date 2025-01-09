@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let mhh1 = document.getElementById("mhh1");
     let mhp1 = document.getElementById("mhp1");
 
-    animateText(mhh1, "julius šlepetis", 250, 120, () => {
-        animateText(mhp1, "<i>idk</i>, i need, <i>like</i>, an internship,<i> or something</i>", 250, 70, () => {
+    animateText(mhh1, "julius šlepetis", 25, 12, () => {
+        animateText(mhp1, "<i>idk</i>, i need, <i>like</i>, an internship,<i> or something</i>", 25, 7, () => {
             quarterLines = calculateQuarterLines();
             drawLinesIteratively(quarterLines, 50, 50);
 

@@ -13,7 +13,7 @@ export function calculateQuarterLines(){
     const quarterLineArray=[]
     const mainheadrect = document.getElementById("main-header").getBoundingClientRect();
     const svgbgrect = svgbg.getBoundingClientRect();
-    
+    console.log(mainheadrect.pageX)
     const centerX = mainheadrect.x + mainheadrect.width; // Center X of the main header
     const centerY = mainheadrect.y; // Center Y of the main header
     
@@ -23,7 +23,7 @@ export function calculateQuarterLines(){
         const x2 = Math.max(0, centerX + Math.cos(rad) * svgbgrect.width); // Calculate endpoint X, ensuring it's not less than 0
         const y2 = Math.max(0, centerY + Math.sin(rad) * svgbgrect.height); // Calculate endpoint Y, ensuring it's not less than 0
         
-        return new Line(id, centerX, centerY, x2, y2);
+        return new Line(id, centerX+window.scrollX, centerY+window.scrollY, x2+window.scrollX, y2+window.scrollY);
     };
     
     
@@ -53,7 +53,9 @@ function drawLine(id,sx,sy,ex,ey){
     drawnLine.setAttribute('y1', sy);
     drawnLine.setAttribute('x2', ex);
     drawnLine.setAttribute('y2', ey);
-}let currentAnimationFrame = null; // Track the current animation frame ID
+}
+
+let currentAnimationFrame = null; // Track the current animation frame ID
 
 export function drawLinesIteratively(lineCollection, step, interval) {
     function animate() {
