@@ -7,7 +7,9 @@
 function init() {
   new SmoothScroll(document, 120, 12)
 }
-
+export const sharedState = {
+  pos: 0, // Shared position value
+};
 function SmoothScroll(target, speed, smooth) {
   if (target === document)
     target = (document.scrollingElement
@@ -16,7 +18,7 @@ function SmoothScroll(target, speed, smooth) {
       || document.body) // cross browser support for document scrolling
 
   var moving = false
-  var pos = target.scrollTop
+  sharedState.pos = target.scrollTop
   var frame = target === document.body
     && document.documentElement
     ? document.documentElement
@@ -30,8 +32,8 @@ function SmoothScroll(target, speed, smooth) {
 
     var delta = normalizeWheelDelta(e)
 
-    pos += -delta * speed
-    pos = Math.max(0, Math.min(pos, target.scrollHeight - frame.clientHeight)) // limit scrolling
+    sharedState.pos += -delta * speed
+    sharedState.pos = Math.max(0, Math.min(sharedState.pos, target.scrollHeight - frame.clientHeight)) // limit scrolling
 
     if (!moving) update()
   }
@@ -49,7 +51,7 @@ function SmoothScroll(target, speed, smooth) {
   function update() {
     moving = true
 
-    var delta = (pos - target.scrollTop) / smooth
+    var delta = (sharedState.pos - target.scrollTop) / smooth
 
     target.scrollTop += delta
 

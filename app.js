@@ -50,10 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Define the task queue
     const tasks = [
         // Animate main heading text
-        (done) => animateText(mhh1, "julius šlepetis", 250, 120, done),
+        (done) => animateText(mhh1, "julius šlepetis", 25, 12, done),
 
         // Animate subheading text
-        (done) => animateText(mhp1, "<i>idk</i>, i need, <i>like</i>, an internship,<i> or something</i>", 250, 70, done),
+        (done) => animateText(mhp1, "<i>idk</i>, i need, <i>like</i>, an internship,<i> or something</i>", 25, 7, done),
 
         // Calculate and draw quarter lines
         (done) => {
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 );
         
                 // Animate the text
-                animateText(divBox, `<span>${section.heading}</span>`, 50, 120, sectionDone);
+                animateText(divBox, `<span>${section.heading}</span>`, 5, 12, sectionDone);
             });
         
             // Start animating sections and call `done` only after all section tasks are complete
@@ -150,26 +150,36 @@ document.addEventListener('DOMContentLoaded', () => {
     function smoothScrollTo(targetOffset, speed, smooth) {
         const scrollElement = document.scrollingElement || document.documentElement;
     
-        let currentScroll = scrollElement.scrollTop;
-        const distance = targetOffset - currentScroll;
+        // Set the initial position from shared state
+        sharedState.pos = scrollElement.scrollTop;
+    
+        const distance = targetOffset - sharedState.pos;
         const stepCount = Math.abs(Math.round(distance / smooth));
-        const stepSize = distance / (stepCount || 1); // Avoid division by zero for very small distances
+        const stepSize = distance / (stepCount || 1); // Avoid division by zero
     
         let step = 0;
     
         function performStep() {
-            if (step >= stepCount || Math.abs(targetOffset - scrollElement.scrollTop) < 1) {
+            // Calculate the current scroll position
+            const currentPos = sharedState.pos;
+    
+            if (step >= stepCount || Math.abs(targetOffset - currentPos) < 1) {
                 scrollElement.scrollTop = targetOffset; // Snap to target to avoid rounding issues
+                sharedState.pos = targetOffset; // Update shared state to final position
                 return;
             }
     
-            scrollElement.scrollTop += stepSize;
+            // Update shared position and scroll the element
+            sharedState.pos += stepSize;
+            scrollElement.scrollTop = sharedState.pos;
+    
             step++;
             requestAnimationFrame(performStep);
         }
     
         performStep();
     }
+    
     
 
     // Handle repositioning and resizing
@@ -214,3 +224,4 @@ document.addEventListener('DOMContentLoaded', () => {
 // Import functions from other files
 import { animateText } from './textAnimations.js';
 import { calculateQuarterLines, drawLinesIteratively, dividedLinePoints, adjustLinesForResize, cancelAnimation } from './lineAnimations.js';
+import { sharedState } from './smooth-scroll.js';
