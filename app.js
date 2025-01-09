@@ -43,6 +43,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 dividedLines = dividedLinePoints(quarterLines[0], 3);
                 drawLinesIteratively(quarterLines, 50, 50);
                 drawLinesIteratively(dividedLines, 5, 50);
+                let i=0;
+                dividedLines.forEach((line) => {
+                   let divBox=document.querySelector(`.btn_section#${line.id}`)
+                    //check if an element with such a class and id exists, if not execute ONLY two lines below and then the rest
+                    if (!document.querySelector(`.btn_section#${line.id}`)) {
+                        // Create and append the div
+                        divBox = document.createElement("div");
+                        document.body.append(divBox);
+                    
+                        divBox.setAttribute("class", "btn_section");
+                        divBox.setAttribute("id", line.id);
+                    }
+    
+                    divBox.setAttribute("style",
+                        "width:"+dividedLines[1].start.x+"px;"+
+                        "top:"+(dividedLines[1].start.y-50)+"px;"+
+                        "left:"+dividedLines[i].start.x+"px;"
+                    )
+                    //animateText(divBox,"this is a "+line.id,500,120)
+                    i++;
+                 
+                });
             });
 
             window.addEventListener("scroll",() => {
