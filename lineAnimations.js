@@ -13,7 +13,7 @@ export function calculateQuarterLines(){
     const quarterLineArray=[]
     const mainheadrect = document.getElementById("main-header").getBoundingClientRect();
     const svgbgrect = svgbg.getBoundingClientRect();
-    console.log(mainheadrect.pageX)
+    //console.log(mainheadrect.pageX)
     let centerX = mainheadrect.x + mainheadrect.width; // Center X of the main header
     let centerY = mainheadrect.y; // Center Y of the main header
     
@@ -117,33 +117,53 @@ function progressLine(line, step) {
     line.current.x = newX;
     line.current.y = newY;
 }
-//returns an array of points which divide a given line into a given amount of sections
-export function dividedLinePoints(line, divisions){
-    const linePoints=[]
+//returns an array of points which divide a given line into a given amount of sections if fullLines true, lines will be generated as current=end, false current=0
+export function dividedLinePoints(line, divisions, fullLines = false) {
+    if (divisions <= 0) {
+        throw new Error("Divisions must be greater than 0");
+    }
+
+    const linePoints = [];
     const dx = line.end.x - line.start.x; // Difference in x
     const dy = line.end.y - line.start.y; // Difference in y
     const distance = Math.sqrt(dx * dx + dy * dy); // Total distance from start to end
-    const distancePerDivision = distance/divisions
-    
+    const distancePerDivision = distance / divisions;
 
     // Normalize the direction vector
     const dirX = dx / distance;
     const dirY = dy / distance;
 
-
-    //console.log(newX,newY)
-    //drawLine(420,newX,newY,newX,newY+20)
+    // Generate points and optionally full lines
     for (let i = 1; i < divisions; i++) {
-        const singlePoint = [];
-      
-            // Calculate the new current position
-    let newX = line.start.x + dirX * distancePerDivision*i;
-    let newY = line.start.y + dirY * distancePerDivision*i;
-    const newPoint = new Line("dv_"+i,newX,newY,newX,newY-50)
-        linePoints.push(newPoint)
+        const newX = line.start.x + dirX * distancePerDivision * i;
+        const newY = line.start.y + dirY * distancePerDivision * i;
+
+        if (fullLines) {
+            const newPoint = new Line(
+                "dv_" + i,
+                newX,
+                newY,
+                newX,
+                newY - 50,
+                newX,
+                newY - 50
+            );
+            linePoints.push(newPoint);
+        } else {
+            const newPoint = new Line(
+                "dv_" + i,
+                newX,
+                newY,
+                newX,
+                newY-50
+            );
+            linePoints.push(newPoint);
+        }
     }
-    return linePoints
+
+    return linePoints;
 }
+
 
 //adjusts lines to the same level of progress position of main element changed
 export function adjustLinesForResize(lineCollection) {

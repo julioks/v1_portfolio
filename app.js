@@ -21,10 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let mhh1 = document.getElementById("mhh1");
     let mhp1 = document.getElementById("mhp1");
 
-    animateText(mhh1, "julius šlepetis", 25, 12, () => {
-        animateText(mhp1, "<i>idk</i>, i need, <i>like</i>, an internship,<i> or something</i>", 25, 7, () => {
+    animateText(mhh1, "julius šlepetis", 250, 120, () => {
+        animateText(mhp1, "<i>idk</i>, i need, <i>like</i>, an internship,<i> or something</i>", 250, 70, () => {
             quarterLines = calculateQuarterLines();
-            drawLinesIteratively(quarterLines, 50, 50);
+            drawLinesIteratively(quarterLines, 5, 10);
 
             dividedLines = dividedLinePoints(quarterLines[0], sections.length);
             drawLinesIteratively(dividedLines, 5, 50);
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             function animateSectionsSequentially(index = 0) {
                 if (index >= dividedLines.length + 1) {
-                    console.log("All sections animated.");
+                   
                     return;
                 }
             
@@ -54,8 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 );
             
                 // Animate the text for the current divBox
-                animateText(divBox, sections[index].heading, 50, 120, () => {
-                    console.log("Animation complete for section " + index);
+                animateText(divBox, "<span>"+sections[index].heading+"</span>", 50, 120, () => {
+                   
                     // Move to the next section
                     animateSectionsSequentially(index + 1);
                 });
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         "left:"+(dividedLines[i]?.start?.x ?? 0) +"px;"
                     )
                     
-                   console.log("moving "+ i)
+                  
                     
                 }
             }
@@ -84,9 +84,9 @@ document.addEventListener('DOMContentLoaded', () => {
             window.addEventListener("resize", () => {
                 cancelAnimation();
                 adjustLinesForResize(quarterLines);
-                dividedLines = dividedLinePoints(quarterLines[0], sections.length);
-                drawLinesIteratively(quarterLines, 50, 50);
-                drawLinesIteratively(dividedLines, 5, 50);
+                dividedLines = dividedLinePoints(quarterLines[0], sections.length,true);
+                drawLinesIteratively(quarterLines, 0, 0);
+                drawLinesIteratively(dividedLines, 0, 0);
                 repositionNavTexts()
             });
 
@@ -94,12 +94,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById("main-header").style.top=Math.max(0,((window.innerHeight/100)*60-window.scrollY))+"px";
                 cancelAnimation();
                 adjustLinesForResize(quarterLines);
-                dividedLines = dividedLinePoints(quarterLines[0], 3);
-                drawLinesIteratively(quarterLines, 50, 50);
-                drawLinesIteratively(dividedLines, 5, 50);
+                dividedLines = dividedLinePoints(quarterLines[0], sections.length,true);
+                drawLinesIteratively(dividedLines, 0, 0);
+                drawLinesIteratively(quarterLines, 0, 0);
+               
                 repositionNavTexts()
-          
-
             });
         });
     });
