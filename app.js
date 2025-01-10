@@ -29,7 +29,7 @@ sections.push(new Section(
     "idk, here’s some stuff i’m kinda proud of and had fun working on, and enjoyed the contexts of.<br><br>"+
     "these are all developed to an interactive concept stage. a few went a bit further, but let’s be real, none of them work <i>perfectly</i>. if you want to mess around with something specific, just reach out, and i’ll see what i can do. details are below, project by project.<br>" +
     "<h2>melodiverse</h2>"+
-"<div class='mdtst'><img style='margin-right:20px;' src='./imgs/projects_1.gif'></img>"+
+"<div class='mdtst'><div class='imgcont'><img  src='./imgs/projects_1.gif'></img></div>"+
 "<div class='textWrapper'><h3>description</h3>"+
 "<h4>a spotify-based music player that lets you explore *truly* random music in *truly* random genres.</h4>"+
 "<p>spotify’s normal suggestions can feel a bit... repetitive. they base everything on a list of about 100 subgenres they think you’re into, so you end up circling the same stuff over and over. this player? it throws all that out. using a list of <b>every</b> genre spotify offers (yes, even the weird ones) and their api, melodiverse lets you break free from their algorithm and dive into the full spectrum of music randomness. </p>"+
@@ -44,15 +44,29 @@ sections.push(new Section(
 
 "<h2>d.a.s.h.</h2>"+
 
-"<div class='mdtst'><div class='textWrapper'><h3>description</h3>"+
+"<div class='mdtst'><div class='imgcont'><img style='margin-right:20px;' src='./imgs/pro_dsh1.png'><img style='margin-right:20px;' src='./imgs/pro_dsh2.png'><img style='margin-right:20px;'  src='./imgs/pro_dsh3.png'></div><div class='textWrapper'><h3>description</h3>"+
 "<h4>digital automotive systems hub</h4>"+
 "<p>an aftermarket onboard computer that adds functionality similar to the trip/computer systems in modern cars. designed to integrate into older vehicles with obd2, it shows data from the car’s ecu like fuel consumption, digital speed, range, and more. the goal? make it blend in with the car’s interior as if it were oem—no tacky, aftermarket vibes here. it's an arduino-powered solution that you can stick into your dashboard and get all kinds of useful data without it looking out of place.</p>"+
 
 "<h3>context</h3>"+
-"<p>i’m kind of addicted to old, cheap cars. i’ve got a lot of them, and my friends always joke that if i sold them, i could afford a “real” car. but i like 'em. the older the car, the more character it has. my favorite's a ‘87 vw jetta, and the car thats currently turned into my daily driver is a ‘00 passat. sure, newer cars are more practical, but nothing beats the quirks and charm of older models. however, using these cars every day does make you notice how much tech has improved over the years. one thing i miss? trip computers. they’ve been around since the ‘70s, but in older cars, they’re either non-existent or really expensive. that’s where d.a.s.h. comes in: most cars already have the sensors, just not the display hardware. with microcontrollers and small screens being cheap and accessible, i figured, why not make one myself?</p>"+
+"<p>i’m kind of addicted to old, cheap cars. i’ve got a lot of them, and my friends always joke that if i sold them, i could afford a “real” car. but i like 'em. the older the car, the more character it has. out of the ones i own, my favorite's a ‘87 vw jetta, and the car thats currently turned into my daily driver is a ‘00 passat. sure, newer cars are more practical, but nothing beats the quirks and charm of older models. however, using these cars every day does make you notice how much tech has improved over the years. one thing i miss? trip computers. they’ve been around since the ‘70s, but in older cars, they’re either non-existent or really expensive. that’s where d.a.s.h. comes in: most cars already have the sensors, just not the display hardware. with microcontrollers and small screens being cheap and accessible, i figured, why not make one myself?</p>"+
 
 "<h3>state</h3>"+
-"<p>there’s already a visual prototype that shows how it would look mounted in the instrument cluster and powered up. right now, both the screen and the gauges are controlled by a microcontroller, but i’m working on getting real ecu data using the vag kw1281 protocol to make it work with my passat and jetta's ecus.</p></div></div>"
+"<p>there’s already a visual prototype that shows how it would look mounted in the instrument cluster and powered up. right now, both the screen and the gauges are controlled by a microcontroller, but i’m working on getting real ecu data using the vag kw1281 protocol to make it work with my passat and jetta's ecus.</p></div></div>"+
+
+
+"<h2>plant-e wandelpark</h2>"+
+
+"<div class='mdtst'><div class='textWrapper'><h3>description</h3>"+
+"<h4>teaching people interactive color theory and helping them navigate by using environmentally friendly lighting</h4>"+
+"<p>evening walks in a park can be pretty nice, assuming you're not wandering through a sketchy neighborhood (let's pretend we're not). the challenge comes when you’re trying to navigate winding paths in low light. also, let’s be real, standard sodium streetlights, though nostalgic, can get a bit boring. so, what if we could light up park paths with different colors, each one tied to where it leads? like, end paths could have their own colors, and the connecting paths could be a mix of those. and to make it even cooler, what if all that lighting was powered by the plants in the park themselves? i mean, how cool is that?</p>"+
+
+"<h3>context</h3>"+
+"<p>plant-e is an organization working on this pretty wild concept: generating electricity from plants. sounds like something out of a sci-fi movie, right? well, it's not not even close to being as much energy as you'd get from a solar panel, but still, it’s something. my team was challenged to create a project that could showcase this tech and grab the public’s attention. i thought about how this could be applied in a park, making something both practical and visually engaging—and this concept was one of my favorites.</p>"+
+
+"<h3>state</h3>"+
+"<p>the concept's been documented pretty well, and i built an interactive experience in unity to give a sense of how it would look in action. i also made a small-scale model of the park out of foam board, paper, and leds, so you could “walk” your fingers around and see how the lighting would guide you through the space.</p></div></div>"
+
   ));
   
 
@@ -74,10 +88,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Define the task queue
     const tasks = [
         // Animate main heading text
-        (done) => animateText(mhh1, "julius šlepetis", 250, 120, done),
+        (done) => animateText(mhh1, "julius šlepetis", 25, 12, done),
 
         // Animate subheading text
-        (done) => animateText(mhp1, "<i>idk</i>, i need, <i>like</i>, an internship,<i> or something</i>", 250, 70, done),
+        (done) => animateText(mhp1, "<i>idk</i>, i need, <i>like</i>, an internship,<i> or something</i>", 25, 7, done),
 
         // Calculate and draw quarter lines
         (done) => {
@@ -119,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 );
         
                 // Animate the text
-                animateText(divBox, `<span>${section.heading}</span>`, 30, 70, sectionDone);
+                animateText(divBox, `<span>${section.heading}</span>`, 3, 7, sectionDone);
             });
         
             // Start animating sections and call `done` only after all section tasks are complete

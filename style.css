@@ -208,10 +208,17 @@ p{
         justify-content: space-between;
 
 }
-.mdtst >img{
-    max-width: 500px;
-    max-height: 500px;
+.imgcont >img{
+  width: 100%;
 }
+.imgcont{
+max-width: 20%;
+min-width: 20%;
+}
+.textWrapper{
+    padding-left: 20px;
+}
+
 .single_section > h2{
     margin-top: 50px;
 }
