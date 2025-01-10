@@ -36,7 +36,7 @@ sections.push(new Section(
 "<p>or, in one sentence: “a diverse universe of melodies.”</p>"+
 
 "<h3>context</h3>"+
-"<p>this is a personal project from a few semesters back. music’s a big thing for me—i’ll listen to anything, whether it’s christian trapcore or satanic folk and anything in between. i’ve always felt that there aren’t bad genres or bad artists, just bad or lazy creations. after using spotify a lot (like, *a lot*), my friends and i noticed it kept us stuck in a loop of the same kind of music, no matter how much we tried to branch out. so, i made melodiverse. it randomly picks a subgenre from spotify’s full list, grabs a random track, and plays it. simple as that. </p>"+
+"<p>this is a personal project from a few semesters back. music’s a big thing for me—i’ll listen to anything, whether it’s christian trapcore or satanic folk or anything in between. i’ve always felt that there aren’t bad genres or bad artists, just bad or lazy creations. after using spotify a lot (like, *a lot*), my friends and i noticed it kept us stuck in a loop of the same kind of music, no matter how much we tried to branch out. so, i made melodiverse. it randomly picks a subgenre from spotify’s full list, grabs a random track, and plays it. simple as that. </p>"+
 "<h3>state</h3>"+
 "<p>implementation of spotify’s authentication flow is a bit iffy at the moment, but otherwise the application is working as intended</p></div></div>"+
 
@@ -57,15 +57,43 @@ sections.push(new Section(
 
 "<h2>plant-e wandelpark</h2>"+
 
-"<div class='mdtst'><div class='textWrapper'><h3>description</h3>"+
+"<div class='mdtst'><div class='imgcont'></div><div class='textWrapper'><h3>description</h3>"+
 "<h4>teaching people interactive color theory and helping them navigate by using environmentally friendly lighting</h4>"+
 "<p>evening walks in a park can be pretty nice, assuming you're not wandering through a sketchy neighborhood (let's pretend we're not). the challenge comes when you’re trying to navigate winding paths in low light. also, let’s be real, standard sodium streetlights, though nostalgic, can get a bit boring. so, what if we could light up park paths with different colors, each one tied to where it leads? like, end paths could have their own colors, and the connecting paths could be a mix of those. and to make it even cooler, what if all that lighting was powered by the plants in the park themselves? i mean, how cool is that?</p>"+
 
 "<h3>context</h3>"+
-"<p>plant-e is an organization working on this pretty wild concept: generating electricity from plants. sounds like something out of a sci-fi movie, right? well, it's not not even close to being as much energy as you'd get from a solar panel, but still, it’s something. my team was challenged to create a project that could showcase this tech and grab the public’s attention. i thought about how this could be applied in a park, making something both practical and visually engaging—and this concept was one of my favorites.</p>"+
+"<p>plant-e is an organization working on this pretty wild concept: generating electricity from plants. sounds like something out of a sci-fi movie, right? well, it's not even close to being as much energy as you'd get from a solar panel, but still, it’s something. my team was challenged to create a project that could showcase this tech and grab the public’s attention. i thought about how this could be applied in a park, making something both practical and visually engaging—and this concept was one of my favorites.</p>"+
 
 "<h3>state</h3>"+
-"<p>the concept's been documented pretty well, and i built an interactive experience in unity to give a sense of how it would look in action. i also made a small-scale model of the park out of foam board, paper, and leds, so you could “walk” your fingers around and see how the lighting would guide you through the space.</p></div></div>"
+"<p>the concept's been documented pretty well, and i built an interactive experience in unity to give a sense of how it would look in action. i also made a small-scale model of the park out of foam board, paper, leds, and a microcontroller, so you could “walk” your fingers around and see how the lighting would guide you through the space.</p></div></div>"+
+
+"<h2>zenmo zero</h2>"+
+"<div class='mdtst'>"+
+"<div class='imgcont'></div>"+
+"<div class='textWrapper'>"+
+"<h3>description</h3>"+
+"<h4>a netherlands-wide sustainable energy transition game</h4>"+
+"<p>ever thought switching to sustainable energy was as simple as slapping some solar panels on a roof and calling it a day? yeah, me too—until i started working on this. zenmo zero is a game where you get to simulate your neighborhood (or really, anywhere in the netherlands) and make all the big decisions to transition it to fully sustainable energy. but it’s not just about panels and wind turbines—you’re balancing the entire electricity grid, budgeting, dealing with peak usage, and all the other complicated stuff that makes “going green” way more of a puzzle than it seems. turns out, there’s a lot more to it than just throwing panels around.</p>"+
+"<h3>context</h3>"+
+"<p>zenmo, the company behind this, specializes in creating high-level simulations of sustainable electricity grids. usually, they work with big players—think industrial-scale operations, government agencies, and other “serious” clients who deal with grid-level decision-making. my task was to take their very technical simulations and turn them into something that could catch the public’s interest. the goal? help people understand what goes into transitioning to a sustainable energy grid and why some decisions are made the way they are. it’s not just about the electricity you use daily—it’s about the entire infrastructure behind it.</p>"+
+" <h3>state</h3>"+
+"<p>i’ve put together an interactive concept of the simulation, where you can see how the interaction and gameplay would flow. the concept doesn’t actually connect to the zenmo simulation or pull real data, so it’s running on placeholder stuff to give a feel of how things would work. it’s all about showing the concept, not the full system, at this stage.</p>"+
+"</div>"+
+"</div>"+
+
+"<h2>sanquin app</h2>"+
+"<div class='mdtst'>"+
+"<div class='imgcont'></div>"+
+"<div class='textWrapper'>"+
+"<h3>description</h3>"+
+"<h4>a social blood donation app</h4>"+
+"<p>donating blood is objectively a good thing—no one’s going to argue with that. but realistically… how many of your friends donate? do you? yeah, that’s kind of the problem. it’s just not something people think about enough to actually do. this app was created to change that. during the project, we explored a bunch of ideas to get people more engaged with blood donation—like donating with friends, making sign-ups simpler, rethinking how rewards work, introducing community challenges, and more. the result? a whole mix of interesting interactions and features designed to make donating blood feel less like a chore and more like something you’d actually want to do and think about doing.</p>"+
+"<h3>context</h3>"+
+"<p>sanquin is the organization that handles blood donations across the netherlands. right now, the blood supply is fine—stable, even—but there’s a bit of a problem on the horizon. most of the current donor base is older, and, well, people age out of eligibility. with fewer younger donors signing up, there’s a risk of supply issues in the future. so, sanquin gave us the task of figuring out how to get younger people to not just think about donating but actually go and do it. this app was part of the solution.</p>"+
+"<h3>state</h3>"+
+"<p>i designed all the user interactions in figma, basing them on user research and creating suggested design styles specifically for this app. there’s also a working software version built by my teammates, though i didn’t contribute much to the programming side. my focus was on crafting interactions and visual concepts that align with user needs and the project goals.</p>"+
+"</div>"+
+"</div>"
 
   ));
   
