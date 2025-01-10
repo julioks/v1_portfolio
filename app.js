@@ -74,10 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Define the task queue
     const tasks = [
         // Animate main heading text
-        (done) => animateText(mhh1, "julius šlepetis", 25, 12, done),
+        (done) => animateText(mhh1, "julius šlepetis", 250, 120, done),
 
         // Animate subheading text
-        (done) => animateText(mhp1, "<i>idk</i>, i need, <i>like</i>, an internship,<i> or something</i>", 25, 7, done),
+        (done) => animateText(mhp1, "<i>idk</i>, i need, <i>like</i>, an internship,<i> or something</i>", 250, 70, done),
 
         // Calculate and draw quarter lines
         (done) => {
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 );
         
                 // Animate the text
-                animateText(divBox, `<span>${section.heading}</span>`, 3, 7, sectionDone);
+                animateText(divBox, `<span>${section.heading}</span>`, 30, 70, sectionDone);
             });
         
             // Start animating sections and call `done` only after all section tasks are complete
