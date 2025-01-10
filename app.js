@@ -18,21 +18,45 @@ class Section {
 
 //helper thing to defer button click attachment 
       let buttonToSectionMap = new Map();
-sections.push(new Section("abt","about","Adipisicing irure eu laboris aliquip ad cupidatat eiusmod ullamco. Enim velit aliquip cillum eiusmod sint commodo aute magna aute magna irure pariatur adipisicing elit. Quis adipisicing ullamco magna tempor laboris fugiat qui velit incididunt qui non sint. Labore aliquip sint quis sunt consectetur excepteur. <br> Do dolore culpa amet ad. Pariatur cupidatat occaecat laboris commodo ea tempor ad labore amet Lorem nulla commodo. Fugiat eu anim labore dolor minim magna fugiat voluptate excepteur sint aliquip. Magna duis sunt aliquip sint ea fugiat nulla esse sit excepteur. Aliquip occaecat velit quis ut velit dolore. Incididunt sint dolor sunt voluptate incididunt dolore ea eu adipisicing ex aliqua ullamco. Cupidatat in reprehenderit enim cupidatat aute consequat anim dolore. ute irure elit cupidatat tempor aliqua dolor tempor deserunt. Aute laborum ullamco eu labore magna velit excepteur. Qui labore deserunt cillum esse dolor commodo ullamco. Enim ut occaecat ut dolore aute nulla ipsum eu amet. Amet ullamco consectetur nulla exercitation est pariatur laborum. "))
+sections.push(new Section("abt","about","i’m 26 (probably).<br><br>"+
+"i like coming up with ideas—especially weird ones—and figuring out how to turn them into something real. if you’ve got a vague concept or some random piece of tech, i’m all about seeing what’s possible with it. bonus points if it’s unusual or doesn’t seem practical at first glance.<br><br>"+
+"interests? yeah, those are… everywhere. knitting, old hi-fi, cars, history, whatever. basically, if it’s a niche topic or there’s room to mess around with it, i’m probably interested. there are maybe three things in the world i find boring, but we don’t talk about those.<br><br>"+
+"when it comes to problem-solving, i’m not much for sticking to one idea. i’ll throw out five, maybe more, and see what sticks. i like breaking away from the obvious and exploring stuff that feels a little out there—it’s more fun that way."))
 
 sections.push(new Section(
     "prj",
     "projects",
-    "blablabla, Lorem cillum incididunt sint qui ullamco sunt sunt est ullamco culpa. Nostrud cupidatat do officia reprehenderit duis ad excepteur commodo ad nulla cupidatat magna. Aute reprehenderit elit aliqua duis minim sint. Fugiat qui labore duis veniam dolore qui. Amet id eu cupidatat anim.<br>" +
+    "idk, here’s some stuff i’m kinda proud of and had fun working on, and enjoyed the contexts of.<br><br>"+
+    "these are all developed to an interactive concept stage. a few went a bit further, but let’s be real, none of them work <i>perfectly</i>. if you want to mess around with something specific, just reach out, and i’ll see what i can do. details are below, project by project.<br>" +
     "<h2>melodiverse</h2>"+
-    "<div class='mdtst'><img src='./imgs/projects_1.gif'></img><p style='margin-left: 42px;'>" +
-    "Eu exercitation esse deserunt anim occaecat cupidatat enim laboris elit. Ullamco reprehenderit labore ut ad sunt veniam exercitation duis nisi ea anim non pariatur id. Aliquip qui dolor dolor aliquip. Ad duis ex nisi elit et irure irure sunt quis commodo proident. Et magna excepteur deserunt tempor magna incididunt anim.<br>Ut ullamco cillum est esse eu nisi duis aliqua exercitation deserunt ut nostrud nostrud voluptate. Esse labore non ipsum veniam ad consectetur eiusmod mollit. Nostrud pariatur aliquip dolore dolor.</p></div>"+"<h2>melodiverse</h2>"+
-    "<div class='mdtst'><p style='margin-right: 42px;'>" +
-    "Quis voluptate elit ipsum aute aliquip laboris. Mollit minim pariatur veniam commodo do labore aute consectetur ex aute ad pariatur. Ullamco dolore nisi pariatur id qui est. Proident elit labore nulla enim dolor in Lorem velit.<br>Amet labore tempor dolore ut proident eiusmod. Anim laborum laboris ullamco in ullamco labore reprehenderit duis esse reprehenderit. Nostrud veniam irure officia consequat magna exercitation aliquip. Enim ut est occaecat officia. Duis cupidatat elit quis ex ullamco id ullamco ipsum voluptate.<br>Ea enim nisi consequat reprehenderit. Ullamco labore mollit consectetur quis occaecat enim enim sunt nisi do elit. Veniam tempor adipisicing velit occaecat. Est ut amet anim culpa. Excepteur in cillum est eiusmod nostrud minim et. Labore veniam pariatur cupidatat dolore dolor sint cillum eiusmod sunt minim eiusmod culpa. Ea minim amet tempor officia aliquip nulla adipisicing ea minim cupidatat excepteur Lorem.<br>Ex veniam dolore ut consectetur Lorem id Lorem irure. Qui nostrud eu nostrud ea nulla. Aliqua non nulla mollit fugiat nisi..</p><img src='./imgs/projects_1.gif'></img></div>"
+"<div class='mdtst'><img style='margin-right:20px;' src='./imgs/projects_1.gif'></img>"+
+"<div class='textWrapper'><h3>description</h3>"+
+"<h4>a spotify-based music player that lets you explore *truly* random music in *truly* random genres.</h4>"+
+"<p>spotify’s normal suggestions can feel a bit... repetitive. they base everything on a list of about 100 subgenres they think you’re into, so you end up circling the same stuff over and over. this player? it throws all that out. using a list of <b>every</b> genre spotify offers (yes, even the weird ones) and their api, melodiverse lets you break free from their algorithm and dive into the full spectrum of music randomness. </p>"+
+"<p>or, in one sentence: “a diverse universe of melodies.”</p>"+
+
+"<h3>context</h3>"+
+"<p>this is a personal project from a few semesters back. music’s a big thing for me—i’ll listen to anything, whether it’s christian trapcore or satanic folk and anything in between. i’ve always felt that there aren’t bad genres or bad artists, just bad or lazy creations. after using spotify a lot (like, *a lot*), my friends and i noticed it kept us stuck in a loop of the same kind of music, no matter how much we tried to branch out. so, i made melodiverse. it randomly picks a subgenre from spotify’s full list, grabs a random track, and plays it. simple as that. </p>"+
+"<h3>state</h3>"+
+"<p>implementation of spotify’s authentication flow is a bit iffy at the moment, but otherwise the application is working as intended</p></div></div>"+
+
+
+
+"<h2>d.a.s.h.</h2>"+
+
+"<div class='mdtst'><div class='textWrapper'><h3>description</h3>"+
+"<h4>digital automotive systems hub</h4>"+
+"<p>an aftermarket onboard computer that adds functionality similar to the trip/computer systems in modern cars. designed to integrate into older vehicles with obd2, it shows data from the car’s ecu like fuel consumption, digital speed, range, and more. the goal? make it blend in with the car’s interior as if it were oem—no tacky, aftermarket vibes here. it's an arduino-powered solution that you can stick into your dashboard and get all kinds of useful data without it looking out of place.</p>"+
+
+"<h3>context</h3>"+
+"<p>i’m kind of addicted to old, cheap cars. i’ve got a lot of them, and my friends always joke that if i sold them, i could afford a “real” car. but i like 'em. the older the car, the more character it has. my favorite's a ‘87 vw jetta, and the car thats currently turned into my daily driver is a ‘00 passat. sure, newer cars are more practical, but nothing beats the quirks and charm of older models. however, using these cars every day does make you notice how much tech has improved over the years. one thing i miss? trip computers. they’ve been around since the ‘70s, but in older cars, they’re either non-existent or really expensive. that’s where d.a.s.h. comes in: most cars already have the sensors, just not the display hardware. with microcontrollers and small screens being cheap and accessible, i figured, why not make one myself?</p>"+
+
+"<h3>state</h3>"+
+"<p>there’s already a visual prototype that shows how it would look mounted in the instrument cluster and powered up. right now, both the screen and the gauges are controlled by a microcontroller, but i’m working on getting real ecu data using the vag kw1281 protocol to make it work with my passat and jetta's ecus.</p></div></div>"
   ));
   
 
-sections.push(new Section("cnt","contact","blablabla, and a bla and a bleghEa in enim velit aliqua ad ullamco laboris nulla nisi ipsum esse sunt. Elit veniam consequat nulla ex elit laboris ex reprehenderit ea ea aliquip. Exercitation reprehenderit eu incididunt eu aliquip dolor duis dolor Lorem. In excepteur amet duis do officia. Sit mollit ad dolor tempor nulla Lorem minim laboris quis reprehenderit aliquip.<br>Consectetur aliqua ex eiusmod do duis qui reprehenderit mollit ex veniam deserunt. Nulla dolore dolor proident laboris ea esse veniam incididunt ea commodo. Exercitation tempor ad deserunt ipsum irure do. Id amet consequat excepteur consequat laborum deserunt reprehenderit. Irure veniam sunt laboris magna et eu consequat nulla excepteur dolor nisi. Et minim non fugiat voluptate pariatur cupidatat velit reprehenderit non anim.<br>Cupidatat adipisicing nostrud voluptate aute ullamco ex est officia dolor aliqua laborum. Occaecat ad aliquip exercitation in. In mollit minim Lorem amet. Ex quis nisi eu voluptate consequat proident ut exercitation ex tempor consequat. Commodo elit enim non adipisicing esse nisi id laboris in culpa duis elit et ipsum."))
+sections.push(new Section("cnt","contact","email: slepetisjulius@gmail.com, j.slepetis@student.fontys.nl"))
 
 document.addEventListener('DOMContentLoaded', () => {
     let mhh1 = document.getElementById("mhh1");
@@ -50,10 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Define the task queue
     const tasks = [
         // Animate main heading text
-        (done) => animateText(mhh1, "julius šlepetis", 250, 120, done),
+        (done) => animateText(mhh1, "julius šlepetis", 25, 12, done),
 
         // Animate subheading text
-        (done) => animateText(mhp1, "<i>idk</i>, i need, <i>like</i>, an internship,<i> or something</i>", 250, 70, done),
+        (done) => animateText(mhp1, "<i>idk</i>, i need, <i>like</i>, an internship,<i> or something</i>", 25, 7, done),
 
         // Calculate and draw quarter lines
         (done) => {
@@ -95,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 );
         
                 // Animate the text
-                animateText(divBox, `<span>${section.heading}</span>`, 35, 70, sectionDone);
+                animateText(divBox, `<span>${section.heading}</span>`, 3, 7, sectionDone);
             });
         
             // Start animating sections and call `done` only after all section tasks are complete
