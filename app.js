@@ -57,7 +57,7 @@ sections.push(new Section(
 
 "<h2>plant-e wandelpark</h2>"+
 
-"<div class='mdtst'><div class='imgcont'></div><div class='textWrapper'><h3>description</h3>"+
+"<div class='mdtst'><div class='imgcont'><img style='margin-right:20px;' src='./imgs/prj_pe_1.png'><img style='margin-right:20px;' src='./imgs/prj_pe_2.png'></div><div class='textWrapper'><h3>description</h3>"+
 "<h4>teaching people interactive color theory and helping them navigate by using environmentally friendly lighting</h4>"+
 "<p>evening walks in a park can be pretty nice, assuming you're not wandering through a sketchy neighborhood (let's pretend we're not). the challenge comes when you’re trying to navigate winding paths in low light. also, let’s be real, standard sodium streetlights, though nostalgic, can get a bit boring. so, what if we could light up park paths with different colors, each one tied to where it leads? like, end paths could have their own colors, and the connecting paths could be a mix of those. and to make it even cooler, what if all that lighting was powered by the plants in the park themselves? i mean, how cool is that?</p>"+
 
@@ -69,7 +69,7 @@ sections.push(new Section(
 
 "<h2>zenmo zero</h2>"+
 "<div class='mdtst'>"+
-"<div class='imgcont'></div>"+
+"<div class='imgcont'><img style='margin-right:20px;' src='./imgs/prj_z0_1.png'><img style='margin-right:20px;' src='./imgs/prj_z0_2.png'></div>"+
 "<div class='textWrapper'>"+
 "<h3>description</h3>"+
 "<h4>a netherlands-wide sustainable energy transition game</h4>"+
@@ -83,7 +83,7 @@ sections.push(new Section(
 
 "<h2>sanquin app</h2>"+
 "<div class='mdtst'>"+
-"<div class='imgcont'></div>"+
+"<div class='imgcont'><img style='margin-right:20px;' src='./imgs/prj_sq_1.png'>><img style='margin-right:20px;' src='./imgs/prj_sq_2.png'></div>"+
 "<div class='textWrapper'>"+
 "<h3>description</h3>"+
 "<h4>a social blood donation app</h4>"+
@@ -98,7 +98,7 @@ sections.push(new Section(
   ));
   
 
-sections.push(new Section("cnt","contact","email: slepetisjulius@gmail.com, j.slepetis@student.fontys.nl"))
+sections.push(new Section("cnt","contact","email: slepetisjulius@gmail.com, j.slepetis@student.fontys.nl"+"<div class='endthing'>this site is best viewed with a chromium based browser</div>"))
 
 document.addEventListener('DOMContentLoaded', () => {
     let mhh1 = document.getElementById("mhh1");
@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 );
         
                 // Animate the text
-                animateText(divBox, `<span>${section.heading}</span>`, 30, 70, sectionDone);
+                animateText(divBox, `<span>${section.heading}</span>`, 10, 20, sectionDone);
             });
         
             // Start animating sections and call `done` only after all section tasks are complete
@@ -185,8 +185,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 animateText(
                     sectionDiv,
                     `<h1>${section.heading}</h1><p>${section.content}</p>`,
-                    0,
-                    0,
+                    1,
+                    1,
                     () => {
                         // Attach the button's click event to the corresponding <h1> when it is created
                         const button = buttonToSectionMap.get(section.id);
