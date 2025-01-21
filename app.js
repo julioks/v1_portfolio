@@ -170,43 +170,57 @@ document.addEventListener('DOMContentLoaded', () => {
             // Attach click listeners later when the sections are created
         },
         // Do the content stuff
-        (done) => {
-            console.log("All sections animated!");
-        
-            const content = document.createElement("div");
-            content.setAttribute("class", "content");
-        
-            sections.forEach(section => {
-                const sectionDiv = document.createElement("div");
-                sectionDiv.setAttribute("class", "single_section");
-                sectionDiv.setAttribute("id", "cont_" + section.id);
-        
-                // Animate the section's content
-                animateText(
-                    sectionDiv,
-                    `<h1>${section.heading}</h1><p>${section.content}</p>`,
-                    1,
-                    1,
-                    () => {
-                        // Attach the button's click event to the corresponding <h1> when it is created
-                        const button = buttonToSectionMap.get(section.id);
-                        if (button) {
-                            const header = sectionDiv.querySelector("h1");
-                            if (header) {
-                                button.addEventListener("click", () => {
-                                    smoothScrollTo(header.getBoundingClientRect().top + window.scrollY-181, 120, 12);
-                                });
-                            }
-                        }
-                    }
-                );
-        
-                content.append(sectionDiv);
-            });
-        
-            document.body.append(content);
-            done();
-        }
+        // Content rendering task
+(done) => {
+    console.log("All sections animated!");
+
+    const content = document.createElement("div");
+    content.setAttribute("class", "content");
+
+    sections.forEach(section => {
+        const sectionDiv = document.createElement("div");
+        sectionDiv.setAttribute("class", "single_section");
+        sectionDiv.setAttribute("id", "cont_" + section.id);
+
+        // Add heading 
+        const heading = document.createElement("h1");
+        heading.innerHTML = section.heading;
+        sectionDiv.appendChild(heading);
+
+        // Add content dynamically with animation
+        const paragraph = document.createElement("p");
+        paragraph.style.opacity = "0"; // Start hidden for animation
+        paragraph.innerHTML = section.content;
+        sectionDiv.appendChild(paragraph);
+
+        // Animate content appearance after heading
+        animateText(
+            heading, // Animate heading first
+            section.heading,
+            50,
+            50,
+            () => {
+                // Fade in the paragraph after heading animation completes
+                paragraph.style.transition = "opacity 0.5s ease-in-out";
+                paragraph.style.opacity = "1";
+
+                // Attach button click event for smooth scrolling
+                const button = buttonToSectionMap.get(section.id);
+                if (button) {
+                    button.addEventListener("click", () => {
+                        smoothScrollTo(sectionDiv.getBoundingClientRect().top + window.scrollY - 181, 120, 12);
+                    });
+                }
+            }
+        );
+
+        content.append(sectionDiv);
+    });
+
+    document.body.append(content);
+    done();
+}
+
         
     ];
 
