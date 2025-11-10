@@ -18,7 +18,7 @@ class Section {
 
 //helper thing to defer button click attachment 
       let buttonToSectionMap = new Map();
-sections.push(new Section("abt","about","i’m 26 (probably).<br><br>"+
+sections.push(new Section("abt","about","i’m 27 (probably).<br><br>"+
 "i like coming up with ideas—especially weird ones—and figuring out how to turn them into something real. if you’ve got a vague concept or some random piece of tech, i’m all about seeing what’s possible with it. bonus points if it’s unusual or doesn’t seem practical at first glance.<br><br>"+
 "interests? yeah, those are… everywhere. knitting, old hi-fi, cars, history, whatever. basically, if it’s a niche topic or there’s room to mess around with it, i’m probably interested. there are maybe three things in the world i find boring, but we don’t talk about those.<br><br>"+
 "when it comes to problem-solving, i’m not much for sticking to one idea. i’ll throw out five, maybe more, and see what sticks. i like breaking away from the obvious and exploring stuff that feels a little out there—it’s more fun that way."))
@@ -28,6 +28,20 @@ sections.push(new Section(
     "projects",
     "idk, here’s some stuff i’m kinda proud of and had fun working on, and enjoyed the contexts of.<br><br>"+
     "these are all developed to an interactive concept stage. a few went a bit further, but let’s be real, none of them work <i>perfectly</i>. if you want to mess around with something specific, just reach out, and i’ll see what i can do. details are below, project by project.<br>" +
+    
+    "<h2>cameramiga</h2>"+
+
+"<div class='mdtst'><div class='imgcont'><img style='margin-right:20px;' src='./imgs/prj_cmg_1.png'><img style='margin-right:20px;' src='./imgs/prj_cmg_2.jpg'><img style='margin-right:20px;' src='./imgs/prj_cmg_3.png'></div><div class='textWrapper'><h3>description</h3>"+
+"<h4>a retro photo booth built on a commodore amiga</h4>"+
+"<p>a museum-grade photo booth that runs on real amiga hardware. it grabs a live video feed with a 90s framegrabber, shows it on screen using bitplanes, lets visitors snap a photo, and prints it on a normal printer. the whole thing is designed to feel native to classic amiga os with proper intuition ui, not some modern skin taped on top. it looks old because it is old, but it works clean and feels intentional.</p>"+
+
+"<h3>context</h3>"+
+"<p>this was built for the homecomputermuseum in helmond to show that vintage machines are still fun and usable. most exhibits sit behind glass. i wanted an installation people could poke, use, and walk away with a print. constraints are very real here. tiny ram, slow cpu, bitplane graphics, weird old capture cards, flaky peripherals. the goal is to lean into the limits and still ship something visitors enjoy.</p>"+
+
+"<h3>state</h3>"+
+"<p>the pipeline is running. frame capture works through a period-correct framegrabber. image display is done with custom blits into amiga bitplanes. ui is built with intuition gadgets and event loops. printing works via two paths. native hp pcl output when a compatible printer is available, or a linux bridge that receives data over serial and takes care of spooling. image quality is handled with a custom color quantization path. i prototype algorithms in python and rewrite the chosen one in 68k assembly. there is also an esp microcontroller route to translate serial to parallel when needed. next up is more robust error handling, better user prompts, and final tuning of the quantizer for speed vs look.</p></div></div>"+
+    
+    
     "<h2>melodiverse</h2>"+
 "<div class='mdtst'><div class='imgcont'><img  src='./imgs/projects_1.gif'></img></div>"+
 "<div class='textWrapper'><h3>description</h3>"+
@@ -98,7 +112,7 @@ sections.push(new Section(
   ));
   
 
-sections.push(new Section("cnt","contact","email: slepetisjulius@gmail.com, j.slepetis@student.fontys.nl"+"<div class='endthing'>this site is best viewed with a chromium based browser</div>"))
+sections.push(new Section("cnt","contact","email: slepetisjulius@gmail.com, j.slepetis@student.fontys.nl"))
 
 document.addEventListener('DOMContentLoaded', () => {
     let mhh1 = document.getElementById("mhh1");
@@ -208,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const button = buttonToSectionMap.get(section.id);
                 if (button) {
                     button.addEventListener("click", () => {
-                        smoothScrollTo(sectionDiv.getBoundingClientRect().top + window.scrollY - 181, 120, 12);
+                        scrollIntoView(sectionDiv.getBoundingClientRect().top + window.scrollY - 181, 120, 12);
                     });
                 }
             }

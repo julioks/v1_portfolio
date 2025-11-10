@@ -1,8 +1,28 @@
 @font-face {
-    font-family: GnuUnifont;
-    src: url(GnuUnifontFull-Pm9P.ttf) format("truetype");
- 
-}
+    font-family: "GnuUnifont";
+    src: url("GnuUnifontFull-Pm9P.ttf") format("truetype");
+    font-weight: 400 700; /* map every weight to this single file */
+    font-style: normal;
+  }
+  html {
+    letter-spacing: 0;
+    word-spacing: 0;
+    line-height: 1;  /* unitless is consistent */
+  }
+  h1, h2 { letter-spacing: 0; } /* only change if you *want* tracking */
+  
+  .boldish {
+    font-weight: 400;
+    font-synthesis:style;
+    text-shadow:
+      1px 0 currentColor,
+     -1px 0 currentColor,
+      0 1px currentColor,
+      0 -1px currentColor;
+  }
+  
+  /*html { font-synthesis: none; }*/
+  
 
 
       :root {
@@ -14,15 +34,17 @@
     
 
 }
-
+h1, h2, h3 { font-weight: 600; } 
 body{
+    
     all: unset;
     scroll-behavior: smooth;
     font-family: GnuUnifont;
     background-color: #161414;
     color: var(--vfdcolor);
                 width: 100%;
-            
+                -webkit-font-smoothing: none;
+                font-smooth: never;
             display: block;
             overflow-x: hidden;
             text-shadow: 
@@ -37,6 +59,7 @@ body{
             position: fixed;
             z-index: 10000;
             top: 0;
+
             left: 0;
             height: 100vh;
             width: 100vw;
@@ -92,7 +115,32 @@ body{
     }
 }
 #main-header{
-   z-index: 2;
+   z-index: 1;
+   font-weight: 400;
+   font-synthesis:style;
+   text-shadow:
+     1px 0 currentColor,
+    0px 0 currentColor,
+     0px 0px currentColor,
+     0px 1px currentColor;
+}
+h1{
+    font-weight: 400;
+   font-synthesis: none;
+   text-shadow:
+     1px 0 currentColor,
+    0px 0 currentColor,
+     0px 0px currentColor,
+     0px 1px currentColor;
+}
+h2,h3{
+    font-weight: 400;
+   font-synthesis: none;
+   text-shadow:
+     0px 0 currentColor,
+    0px 0 currentColor,
+     0px 0px currentColor,
+     0px 0px currentColor;
 }
 #main-header > h1 {
     position: relative;
@@ -123,7 +171,7 @@ body{
 
 
 #main-header>p{
-    font-weight: bold;
+    /*font-weight: bold;*/
     padding: 0;
     margin: 0;
     margin-top: 2%;
@@ -187,9 +235,7 @@ body{
 .btn_section span {
     position: relative;
 }
-p{
-    font-size: larger;
-}
+
 .content{
     position: relative;
     display: flex;
@@ -225,6 +271,9 @@ min-width: 20%;
 .mdtst >p{
     
 
+}
+p{
+    font-size: 20px;
 }
 
 /* Common styles for Safari and Firefox */
