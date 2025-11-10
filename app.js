@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const button = buttonToSectionMap.get(section.id);
                 if (button) {
                     button.addEventListener("click", () => {
-                        scrollIntoView(sectionDiv.getBoundingClientRect().top + window.scrollY - 181, 120, 12);
+                        smoothScrollTo(sectionDiv.getBoundingClientRect().top + window.scrollY - 181, 120, 12);
                     });
                 }
             }
