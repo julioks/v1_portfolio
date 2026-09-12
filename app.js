@@ -25,18 +25,15 @@ function easeOutQuart(value) {
 }
 
 function animateLine(line, start, end, duration, delay, version) {
-  if (reducedMotion.matches) {
-    setLine(line, start.x, start.y, end.x, end.y);
-    return;
-  }
-
   setLine(line, start.x, start.y, start.x, start.y);
-  const startedAt = performance.now() + delay;
+  const motionScale = reducedMotion.matches ? 0.4 : 1;
+  const scaledDuration = duration * motionScale;
+  const startedAt = performance.now() + delay * motionScale;
 
   function draw(now) {
     if (version !== drawingVersion) return;
 
-    const progress = Math.min(1, Math.max(0, (now - startedAt) / duration));
+    const progress = Math.min(1, Math.max(0, (now - startedAt) / scaledDuration));
     const eased = easeOutQuart(progress);
     const x = start.x + (end.x - start.x) * eased;
     const y = start.y + (end.y - start.y) * eased;
@@ -89,13 +86,19 @@ function drawSignalGrid(animate = false) {
     setLine(line, x, point.y, x, point.y - 42);
     ticksLayer.append(line);
 
-    if (animate && !reducedMotion.matches) {
+    if (animate) {
+      const motionScale = reducedMotion.matches ? 0.4 : 1;
       line.animate(
         [
           { opacity: 0, transform: "translateY(12px)" },
           { opacity: 0.6, transform: "translateY(0)" },
         ],
-        { duration: 300, delay: 560 + index * 75, fill: "backwards", easing: "ease-out" },
+        {
+          duration: 300 * motionScale,
+          delay: (560 + index * 75) * motionScale,
+          fill: "backwards",
+          easing: "ease-out",
+        },
       );
     }
   }
@@ -105,24 +108,20 @@ function wait(milliseconds) {
   return new Promise((resolve) => window.setTimeout(resolve, milliseconds));
 }
 
-async function typeText(element, speed, cursor = false) {
+async function typeText(element, speed, cursor = false, leadIn = 440) {
   const text = element.dataset.text || element.textContent.trim();
   element.setAttribute("aria-label", text);
 
-  if (reducedMotion.matches) {
-    element.textContent = text;
-    element.classList.add("is-typed");
-    if (cursor) element.classList.add("type-cursor");
-    return;
-  }
+  const motionScale = reducedMotion.matches ? 0.45 : 1;
 
   element.textContent = "";
+  element.classList.remove("is-typed", "type-cursor");
   element.classList.add("is-typing");
-  await wait(180);
+  await wait(leadIn * motionScale);
 
   for (let index = 1; index <= text.length; index += 1) {
     element.textContent = text.slice(0, index);
-    await wait(speed + Math.random() * speed * 0.45);
+    await wait((speed + Math.random() * speed * 0.35) * motionScale);
   }
 
   element.classList.remove("is-typing");
@@ -131,23 +130,20 @@ async function typeText(element, speed, cursor = false) {
 }
 
 async function runIntro() {
-  const [eyebrow, title, contactCopy] = document.querySelectorAll("[data-type]");
+  const [title, contactCopy] = document.querySelectorAll("[data-type]");
   const contact = document.querySelector("[data-reveal]");
+  const contactLink = document.querySelector("[data-reveal-link]");
 
-  if (reducedMotion.matches) {
-    await Promise.all([
-      typeText(eyebrow, 0),
-      typeText(title, 0, true),
-      typeText(contactCopy, 0),
-    ]);
-    contact.classList.add("is-revealed");
-    return;
-  }
+  contact.classList.remove("is-revealed");
+  contactLink.classList.remove("is-revealed");
+  await wait(reducedMotion.matches ? 80 : 240);
 
-  await typeText(eyebrow, 22);
-  await typeText(title, 34, true);
+  await typeText(title, 58, true, 560);
   contact.classList.add("is-revealed");
-  await typeText(contactCopy, 21);
+  await typeText(contactCopy, 34, false, 420);
+  drawSignalGrid(true);
+  await wait(reducedMotion.matches ? 220 : 680);
+  contactLink.classList.add("is-revealed");
 }
 
 function updatePointerGlow(event) {
@@ -163,12 +159,13 @@ window.addEventListener("resize", () => {
   resizeFrame = requestAnimationFrame(() => drawSignalGrid(false));
 });
 
-const fontsReady = document.fonts?.ready || Promise.resolve();
-
-fontsReady.then(() => {
-  drawSignalGrid(true);
-  runIntro();
+runIntro().then(() => {
   window.clearTimeout(window.__introFallback);
 }).catch(() => {
   document.documentElement.classList.remove("js");
+});
+
+const fontsReady = document.fonts?.ready || Promise.resolve();
+fontsReady.then(() => {
+  if (drawingVersion > 0) drawSignalGrid(false);
 });

@@ -235,6 +235,19 @@ h1 {
   transition: color 300ms linear, text-shadow 300ms linear;
 }
 
+.js .contact-link:not(.is-revealed) {
+  opacity: 0;
+  transform: translateY(0.5rem);
+}
+
+.contact-link.is-revealed {
+  transition:
+    color 300ms linear,
+    text-shadow 300ms linear,
+    opacity 360ms ease,
+    transform 360ms ease;
+}
+
 .contact-link::before {
   position: absolute;
   z-index: -1;
