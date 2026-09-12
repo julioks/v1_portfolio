@@ -169,6 +169,9 @@ main {
   text-align: right;
   animation: text-jitter 90ms steps(2, jump-none) infinite alternate;
 }
+p{
+    font-size: 20px;
+}
 
 #signal-origin {
   position: absolute;
