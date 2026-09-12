@@ -136,13 +136,13 @@ async function runIntro() {
 
   contact.classList.remove("is-revealed");
   contactLink.classList.remove("is-revealed");
-  await wait(reducedMotion.matches ? 80 : 240);
+  await wait(reducedMotion.matches ? 140 : 320);
 
-  await typeText(title, 58, true, 560);
+  await typeText(title, 105, true, 1100);
   contact.classList.add("is-revealed");
-  await typeText(contactCopy, 34, false, 420);
+  await typeText(contactCopy, 58, false, 850);
   drawSignalGrid(true);
-  await wait(reducedMotion.matches ? 220 : 680);
+  await wait(reducedMotion.matches ? 420 : 1000);
   contactLink.classList.add("is-revealed");
 }
 
