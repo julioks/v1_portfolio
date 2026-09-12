@@ -9,7 +9,12 @@
   <link rel="preload" href="./GnuUnifontFull-Pm9P.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
   <link rel="stylesheet" href="./style.css">
-  <script>document.documentElement.classList.add('js')</script>
+  <script>
+    document.documentElement.classList.add('js');
+    window.__introFallback = window.setTimeout(function () {
+      document.documentElement.classList.remove('js');
+    }, 5000);
+  </script>
 </head>
 <body>
   <div class="screen-wash" aria-hidden="true"></div>
@@ -47,6 +52,6 @@
 
   <p class="signal-note" aria-hidden="true">signal open</p>
 
-  <script type="module" src="./app.js"></script>
+  <script defer src="./app.js" onerror="document.documentElement.classList.remove('js')"></script>
 </body>
 </html>

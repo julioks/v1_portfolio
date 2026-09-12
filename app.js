@@ -163,7 +163,12 @@ window.addEventListener("resize", () => {
   resizeFrame = requestAnimationFrame(() => drawSignalGrid(false));
 });
 
-document.fonts.ready.then(() => {
+const fontsReady = document.fonts?.ready || Promise.resolve();
+
+fontsReady.then(() => {
   drawSignalGrid(true);
   runIntro();
+  window.clearTimeout(window.__introFallback);
+}).catch(() => {
+  document.documentElement.classList.remove("js");
 });
