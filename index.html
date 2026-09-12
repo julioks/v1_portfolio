@@ -1,30 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>julius šlepetis_</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="" />
-  <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/yui/yui2/refs/heads/master/src/reset/css/reset.css">
-  <link rel="stylesheet" type="text/css" href="style.css" />
-  <link rel="icon" href="favicon.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#161414">
+  <meta name="description" content="Julius Šlepetis — site under construction.">
+  <title>Site under construction — Julius Šlepetis</title>
+  <link rel="preload" href="./GnuUnifontFull-Pm9P.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="stylesheet" href="./style.css">
+  <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
-  <div class="faker" style="
-  height: 161px;
-  width: 100%;
-  position: sticky;
-  top: 0;
-  background-color: #161414;
-  z-index: 1;
-"></div>
-    <svg id="svgbg" >
-    </svg>
-    <div id="main-header">
-        <h1 id="mhh1" style="font-size: 3.5rem;">_</h1>
-        <p id="mhp1"style="font-size: 1.5rem;"></p>
+  <div class="screen-wash" aria-hidden="true"></div>
 
-    <script type="module" src="app.js"></script></div>
-    <script type="module" src="smooth-scroll.js"></script>
+  <header class="site-mark" aria-label="Site status">
+    <span>julius šlepetis</span>
+    <span class="site-mark__status"><i aria-hidden="true"></i> maintenance / 503</span>
+  </header>
+
+  <svg id="signal-grid" aria-hidden="true" preserveAspectRatio="none">
+    <g id="axes"></g>
+    <g id="ticks"></g>
+  </svg>
+
+  <main>
+    <section class="construction" aria-labelledby="construction-title">
+      <span id="signal-origin" aria-hidden="true"></span>
+      <p class="eyebrow" data-type data-text="portfolio / temporarily offline">
+        portfolio / temporarily offline
+      </p>
+      <h1 id="construction-title" data-type data-text="site under construction">
+        site under construction
+      </h1>
+      <div class="contact" data-reveal>
+        <p data-type data-text="if you really need me, reach out to">
+          if you really need me, reach out to
+        </p>
+        <a class="contact-link" href="mailto:slepetisjulius@gmail.com" aria-label="Email Julius at slepetisjulius@gmail.com">
+          <span>slepetisjulius@gmail.com</span>
+          <span class="contact-link__arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <p class="signal-note" aria-hidden="true">signal open</p>
+
+  <script type="module" src="./app.js"></script>
 </body>
 </html>

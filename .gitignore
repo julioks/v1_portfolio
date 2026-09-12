@@ -2,6 +2,7 @@
 
 # compiled output
 /dist
+/.sites-runtime
 /tmp
 /out-tsc
 
