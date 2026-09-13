@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://julioks.github.io/v1_portfolio/sitemap.xml
+Sitemap: https://julioks.github.io/v1_portfolio/sitemap.txt
