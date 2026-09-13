@@ -197,6 +197,16 @@ h1 {
   text-wrap: balance;
 }
 
+.role-line {
+  max-width: 54rem;
+  min-height: 2.8em;
+  margin: 0 0 2rem auto;
+  color: var(--ink-soft);
+  font-size: clamp(1.05rem, 1.75vw, 1.45rem);
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
 .contact {
   display: flex;
   flex-direction: column;
@@ -364,6 +374,12 @@ h1 {
     margin-bottom: 1.65rem;
     font-size: clamp(3rem, 14vw, 6.2rem);
     line-height: 0.82;
+  }
+
+  .role-line {
+    max-width: 32rem;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
   }
 
   .contact-link {
