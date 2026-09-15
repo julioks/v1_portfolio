@@ -206,6 +206,10 @@ h1 {
   letter-spacing: 0.08em;
 }
 
+.name-alias__name {
+  visibility: hidden;
+}
+
 .role-line {
   max-width: 54rem;
   min-height: 2.8em;
@@ -325,8 +329,8 @@ h1 {
   color: inherit;
 }
 
-.js .name-alias.is-typing,
-.js .name-alias.is-typed,
+.js .name-alias__location.is-typing,
+.js .name-alias__location.is-typed,
 .js .role-line.is-typing,
 .js .role-line.is-typed {
   color: var(--ink-soft);
