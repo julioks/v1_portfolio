@@ -130,7 +130,7 @@ async function typeText(element, speed, cursor = false, leadIn = 440) {
 }
 
 async function runIntro() {
-  const [title, roleLine] = document.querySelectorAll("[data-type]");
+  const [title, nameAlias, roleLine] = document.querySelectorAll("[data-type]");
   const contact = document.querySelector("[data-reveal]");
   const contactLink = document.querySelector("[data-reveal-link]");
 
@@ -139,6 +139,7 @@ async function runIntro() {
   await wait(reducedMotion.matches ? 140 : 320);
 
   await typeText(title, 105, true, 1100);
+  await typeText(nameAlias, 68, false, 460);
   await typeText(roleLine, 32, false, 850);
   drawSignalGrid(true);
   await wait(reducedMotion.matches ? 420 : 1000);

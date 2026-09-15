@@ -190,12 +190,20 @@ main {
 
 h1 {
   max-width: 15ch;
-  margin: 0 0 2.2rem auto;
+  margin: 0 0 0.7rem auto;
   font-size: clamp(3.6rem, 8.1vw, 8.25rem);
   font-weight: 400;
   letter-spacing: -0.07em;
   line-height: 0.83;
   text-wrap: balance;
+}
+
+.name-alias {
+  min-height: 1.2em;
+  margin: 0 0 1.5rem auto;
+  color: var(--ink-soft);
+  font-size: clamp(0.9rem, 1.35vw, 1.15rem);
+  letter-spacing: 0.08em;
 }
 
 .role-line {
@@ -312,6 +320,18 @@ h1 {
   text-shadow: none;
 }
 
+.js [data-type].is-typing,
+.js [data-type].is-typed {
+  color: inherit;
+}
+
+.js .name-alias.is-typing,
+.js .name-alias.is-typed,
+.js .role-line.is-typing,
+.js .role-line.is-typed {
+  color: var(--ink-soft);
+}
+
 [data-type].is-typing::after,
 [data-type].is-typed.type-cursor::after {
   content: "_";
@@ -372,9 +392,13 @@ h1 {
   }
 
   h1 {
-    margin-bottom: 1.65rem;
+    margin-bottom: 0.55rem;
     font-size: clamp(3rem, 14vw, 6.2rem);
     line-height: 0.82;
+  }
+
+  .name-alias {
+    margin-bottom: 1.1rem;
   }
 
   .role-line {
@@ -399,8 +423,12 @@ h1 {
   }
 
   h1 {
-    margin-bottom: 1rem;
+    margin-bottom: 0.4rem;
     font-size: clamp(3rem, 14vh, 5.2rem);
+  }
+
+  .name-alias {
+    margin-bottom: 0.75rem;
   }
 
   .eyebrow {
