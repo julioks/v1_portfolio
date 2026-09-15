@@ -1,6 +1,6 @@
-# julius šlepetis / julius slepetis — portfolio
+# julius slepetis / julius šlepetis — eindhoven portfolio
 
-portfolio of julius šlepetis, also spelled julius slepetis, a creative technologist and media designer based in eindhoven working with electronics, retro computing, interactive installations, and digital media.
+portfolio of julius slepetis, also spelled julius šlepetis, a creative technologist and media designer based in eindhoven, netherlands, working with electronics, retro computing, interactive installations, and digital media.
 
 [visit the live portfolio](https://julioks.github.io/v1_portfolio/)
 
